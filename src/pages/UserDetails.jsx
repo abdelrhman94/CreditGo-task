@@ -5,15 +5,7 @@ import { getUserById } from '../redux/selectors/usersSelectors'
 import { useParams } from 'react-router-dom'
 
 const UserDetailsPage = () => {
-  // const user = {
-  //   avatar: 'https://reqres.in/img/faces/1-image.jpg',
-  //   email: 'george.bluth@reqres.in',
-  //   first_name: 'George',
-  //   id: 1,
-  //   last_name: 'Bluth',
-  // }
   const params = useParams()
-
   const userDetails = useSelector((state) =>
     getUserById(state, parseInt(params.id))
   )

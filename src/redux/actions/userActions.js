@@ -17,7 +17,8 @@ export const loadUsers = (page = 1) => {
   return (dispatch) => {
     getAll(page).then((res) => {
       const userList = res.data
-      dispatch(setUsers(userList))
+      const pageList = res.data.total_pages
+      dispatch(setUsers(userList, pageList))
     })
   }
 }

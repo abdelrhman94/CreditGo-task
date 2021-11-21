@@ -3,7 +3,7 @@ import { Pagination } from 'semantic-ui-react'
 
 const PaginationComponent = ({
   activePage = 1,
-  totalPages = 10,
+  totalPages = 2,
   onPageChange = () => {},
 }) => (
   <Pagination

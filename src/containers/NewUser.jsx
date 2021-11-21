@@ -14,7 +14,7 @@ const NewUserModal = ({
     if (mode === 'update') {
       setState(user)
     }
-  }, [mode])
+  }, [mode, user])
 
   return (
     <Modal onClose={onClose} open={open}>
@@ -30,7 +30,9 @@ const NewUserModal = ({
                 setState({ ...state, first_name: e.target.value })
               }
               value={
-                mode === 'update' && state !== null ? state.first_name : ''
+                mode === 'update' && state !== null
+                  ? state.first_name
+                  : undefined
               }
             />
           </Form.Field>
@@ -42,7 +44,11 @@ const NewUserModal = ({
               onChange={(e) =>
                 setState({ ...state, last_name: e.target.value })
               }
-              value={mode === 'update' && state !== null ? state.last_name : ''}
+              value={
+                mode === 'update' && state !== null
+                  ? state.last_name
+                  : undefined
+              }
             />
           </Form.Field>
           <Form.Field>
@@ -51,7 +57,9 @@ const NewUserModal = ({
               required
               placeholder='Email'
               onChange={(e) => setState({ ...state, email: e.target.value })}
-              value={mode === 'update' && state !== null ? state.email : ''}
+              value={
+                mode === 'update' && state !== null ? state.email : undefined
+              }
             />
           </Form.Field>
           <Button type='submit' onClick={() => onClick(state)}>

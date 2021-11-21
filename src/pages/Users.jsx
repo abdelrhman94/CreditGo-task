@@ -8,16 +8,19 @@ import {
 import NewUserModal from '../containers/NewUser'
 import { Button, Segment } from 'semantic-ui-react'
 import UsersList from '../containers/UserList'
+import PaginationComponent from '../containers/Pagination'
 
 function UsersPage() {
   // const users = useSelector((state) => state)
+  const [page, setPage] = useState(1)
+  // const [pages, setPages] = useState(0)
   const [isNewUserModalOpened, setIsNewUserModalOpened] = useState(false)
   const [userModalType, setUserModaltype] = useState('create')
   const [selectedUser, setSelectedUser] = useState(null)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(loadUsers())
+    dispatch(loadUsers(page))
   })
 
   const updateUser = (user) => {
@@ -46,16 +49,41 @@ function UsersPage() {
       <div className='ui container' style={{ margin: '5px' }}>
         <Segment>
           <UsersList onUpdate={updateUser} />
-          <Button
-            content='New User'
-            icon='plus'
-            labelPosition='left'
-            className='ui icon round button primary'
-            onClick={() => {
-              setUserModaltype('create')
-              setIsNewUserModalOpened(true)
+          <div
+            style={{
+              display: 'flex',
+              marginTop: '10px',
+              justifyContent: 'flex-end',
             }}
-          />
+          >
+            <Button
+              content='New User'
+              icon='plus'
+              labelPosition='left'
+              className='ui icon round button primary'
+              onClick={() => {
+                setUserModaltype('create')
+                setIsNewUserModalOpened(true)
+              }}
+            />
+          </div>
+
+          <div
+            style={{
+              width: '100%',
+              display: 'flex',
+              marginTop: '10px',
+              justifyContent: 'center',
+            }}
+          >
+            <PaginationComponent
+              onPageChange={(e, { activePage }) => {
+                setPage(activePage)
+              }}
+              activePage={page}
+              //  totalPages={pages}
+            />
+          </div>
         </Segment>
       </div>
 

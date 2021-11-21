@@ -6,7 +6,7 @@ import {
   updateUserAction,
 } from '../redux/actions/userActions'
 import NewUserModal from '../containers/NewUser'
-import { Button, Segment } from 'semantic-ui-react'
+import { Button, Segment, Container } from 'semantic-ui-react'
 import UsersList from '../containers/UserList'
 import PaginationComponent from '../containers/Pagination'
 
@@ -21,7 +21,7 @@ function UsersPage() {
 
   useEffect(() => {
     dispatch(loadUsers(page))
-  })
+  },[page])
 
   const updateUser = (user) => {
     setSelectedUser(user)
@@ -46,7 +46,7 @@ function UsersPage() {
 
   return (
     <>
-      <div className='ui container' style={{ margin: '5px' }}>
+      <Container style={{ margin: '1rem', width: '80%' }}>
         <Segment>
           <UsersList onUpdate={updateUser} />
           <div
@@ -85,7 +85,7 @@ function UsersPage() {
             />
           </div>
         </Segment>
-      </div>
+      </Container>
 
       <NewUserModal
         open={isNewUserModalOpened}

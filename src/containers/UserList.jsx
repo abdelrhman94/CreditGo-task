@@ -12,6 +12,7 @@ function UsersList({ onUpdate }) {
     return state.users.list
   })
 
+
   const deleteUser = (id) => dispatch(deleteUserAction(id))
 
   const updateUser = (user) => onUpdate(user)

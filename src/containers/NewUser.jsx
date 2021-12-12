@@ -22,8 +22,9 @@ const NewUserModal = ({
       <Modal.Content>
         <Form>
           <Form.Field>
-            <label>Name</label>
+            <label htmlFor='firstName'>Name</label>
             <input
+              id='firstName'
               required
               placeholder='First Name'
               onChange={(e) =>
@@ -37,8 +38,9 @@ const NewUserModal = ({
             />
           </Form.Field>
           <Form.Field>
-            <label>LastName</label>
+            <label htmlFor='lastName'>LastName</label>
             <input
+              id='lastName'
               required
               placeholder='Last Name'
               onChange={(e) =>
@@ -52,8 +54,9 @@ const NewUserModal = ({
             />
           </Form.Field>
           <Form.Field>
-            <label>Email</label>
+            <label htmlFor='email'>Email</label>
             <input
+              id='email'
               required
               placeholder='Email'
               onChange={(e) => setState({ ...state, email: e.target.value })}

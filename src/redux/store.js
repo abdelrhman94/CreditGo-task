@@ -8,6 +8,7 @@ const initStore = (initialState) => {
   const persistConfig = {
     key: 'root',
     storage,
+    whitelist: []
   }
   const persistedReducer = persistReducer(persistConfig, rootReducer)
   const composeEnhancers =

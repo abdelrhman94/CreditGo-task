@@ -11,9 +11,7 @@ import UsersList from '../containers/UserList'
 import PaginationComponent from '../containers/Pagination'
 
 function UsersPage() {
-  // const users = useSelector((state) => state)
   const [page, setPage] = useState(1)
-  // const [pages, setPages] = useState(0)
   const [isNewUserModalOpened, setIsNewUserModalOpened] = useState(false)
   const [userModalType, setUserModaltype] = useState('create')
   const [selectedUser, setSelectedUser] = useState(null)
@@ -81,7 +79,6 @@ function UsersPage() {
                 setPage(activePage)
               }}
               activePage={page}
-              //  totalPages={pages}
             />
           </div>
         </Segment>

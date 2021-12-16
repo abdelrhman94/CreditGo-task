@@ -19,7 +19,7 @@ function UsersPage() {
 
   useEffect(() => {
     dispatch(loadUsers(page))
-  },[page])
+  }, [dispatch, page])
 
   const updateUser = (user) => {
     setSelectedUser(user)

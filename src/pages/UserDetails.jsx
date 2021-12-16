@@ -1,4 +1,3 @@
-import { useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import { Card, Image} from 'semantic-ui-react'
 import { getUserById } from '../redux/selectors/usersSelectors'
@@ -9,8 +8,7 @@ const UserDetailsPage = () => {
   const userDetails = useSelector((state) =>
     getUserById(state, parseInt(params.id))
   )
-
-  useEffect(() => {})
+  
   return (
     <Card>
       <Image src={userDetails.avatar} wrapped ui={false} />
